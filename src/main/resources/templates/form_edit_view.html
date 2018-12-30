@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Form Edit</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+</head>
+
+
+<style>
+    .red {
+        color: red;
+        font-size: 15px;
+    }
+</style>
+<body>
+<h1>Edit Person Details</h1>
+<div class="container-fluid">
+    <div class="cloumn">
+        <form action="#" th:action="@{/form}" th:object="${person}" th:method="put">
+            <p>First Name*: <input type="text" value="${firstName}" th:field="*{firstName}" th:required="required"/></p>
+            <p>Last Name*: <input type="text" value="${lastName}" th:field="*{lastName}" th:required="required"/></p>
+
+            <p>Age*:
+                <input type="text" value="${age}" th:field="*{age}" th:required="required"/>
+                <span class="red" th:if="${#fields.hasErrors('age')}">Age value is invalid!</span>
+            </p>
+            <p>Address:</p>
+            <p>Road Name: <input type="text" value="${address.roadName}" th:field="*{address.roadName}"/></p>
+            <p>City: <input type="text" value="${address.city}" th:field="*{address.city}"/></p>
+            <p>Country: <input type="text" value="${address.country}" th:field="*{address.country}"/></p>
+            <p>PinCode: <input type="number" value="${address.pincode}" th:field="*{address.pinCode}"/></p>
+            <p><input type="submit" th:value="Submit" class="btn btn-primary"/>
+                <input type="reset" name="Reset" th:value="Reset"/></p>
+        </form>
+    </div>
+</div>
+</body>
+</html>

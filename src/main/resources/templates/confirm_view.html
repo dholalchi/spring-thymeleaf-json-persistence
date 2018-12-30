@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Welcom</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<div th:unless="${update}">
+    <h1 th:text="'Hello ' +  ${person.firstName} + ' ' + ${person.lastName}"></h1>
+    <h3>Thank you for Registration</h3>
+</div>
+<div th:if="${update}">
+    <h1 th:text="'Hello ' +  ${person.firstName} + ' ' + ${person.lastName}"></h1>
+    <h3>Details Updated</h3>
+</div>
+<p>
+    <a href="/list">See Registry</a>
+</p>
+</body>
+</html>

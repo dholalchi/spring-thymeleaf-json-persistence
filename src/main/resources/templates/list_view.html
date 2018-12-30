@@ -1,0 +1,13 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Person Registry</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<h1>Click Name to Edit Details</h1>
+<th:block th:each="name : ${allNames}">
+    <p><a th:text="${name}" th:href="@{|edit/${name}|}"></a></p>
+</th:block>
+</body>
+</html>
